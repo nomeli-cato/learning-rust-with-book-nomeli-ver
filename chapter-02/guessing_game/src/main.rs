@@ -9,9 +9,7 @@ fn main() {
 
     loop {
         println!("Please input your guess.");
-
         let mut guess = String::new();
-
         io::stdin()
             .read_line(&mut guess)
             .expect("Failed to read line");
@@ -20,6 +18,11 @@ fn main() {
             Ok(num) => num,
             Err(_) => continue,
         };
+
+        if guess < 1 || guess > 100 {
+            println!("The secret number will be between 1 and 100.");
+            continue;
+        }
 
         println!("You guessed: {guess}");
 
