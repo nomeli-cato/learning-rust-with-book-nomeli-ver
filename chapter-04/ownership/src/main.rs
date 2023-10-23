@@ -137,6 +137,20 @@ fn main() {
         // println!("{}, {}", r1, r2);
     }
 
+
+    {
+        let mut s = String::from("hello");
+
+        let r1 = &mut s;
+        println!("{}, ", r1); // aqui se libera esta referencia prestada
+                              // por lo cual tiene que usarse sola y que se libere
+                              // para poder usarse otra vez, esto evita que se mute
+                              // a la vez
+        let r2 = &mut s;
+
+        println!("{}, ", r2);
+    }
+
     {
         let mut s = String::from("hello");
 
